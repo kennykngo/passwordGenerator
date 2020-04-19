@@ -159,9 +159,12 @@ function writePassword(num, arr) {
   for (var i = 0; i < +passLength; i++) {
     passWord += chosenArray[Math.floor(Math.random() * chosenArray.length)];
   }
-  alert(passWord);
+  // alert(passWord);
   //   // var password = generatePassword();
-  //   var passwordText = document.querySelector("#password");
+  // var passwordText = document.querySelector("#password");
+
+  var passwordText = document.querySelector("#password");
+  passwordText.value = passWord;
 
   //   passwordText.value = password;
 }
