@@ -79,7 +79,7 @@ var numChar = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 function writePassword() {
   var passWord = "";
-  var chosenChar = "";
+  var chosenChar = [];
 
   var passLength = prompt(
     "How many characters would you like your password to be? (8-128)"
@@ -103,30 +103,19 @@ function writePassword() {
     return;
   }
   if (upperCase === true) {
-    chosenChar += upperChar;
+    chosenChar = chosenChar.concat(upperChar);
   }
   if (lowerCase === true) {
-    if (chosenChar) {
-      chosenChar += ",";
-    }
-    chosenChar += lowerChar;
+    chosenChar = chosenChar.concat(lowerChar);
   }
   if (symbols === true) {
-    if (chosenChar) {
-      chosenChar += ",";
-    }
-    chosenChar += symbolChar;
+    chosenChar = chosenChar.concat(symbolChar);
   }
   if (numbers === true) {
-    if (chosenChar) {
-      chosenChar += ",";
-    }
-    chosenChar += numChar;
+    chosenChar = chosenChar.concat(numChar);
   }
-  var chosenArray = chosenChar.split(",");
-  console.log(chosenArray);
   for (var i = 0; i < +passLength; i++) {
-    passWord += chosenArray[Math.floor(Math.random() * chosenArray.length)];
+    passWord += chosenChar[Math.floor(Math.random() * chosenChar.length)];
   }
   var passwordText = document.querySelector("#password");
   passwordText.value = passWord;
