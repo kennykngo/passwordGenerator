@@ -78,10 +78,8 @@ var numChar = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 // // Write password to the #password input
 
 function writePassword() {
-  var possibilityIndex = 0;
   var passWord = "";
-  var chosenChar = [];
-  var targetArray = [];
+  var chosenChar = "";
 
   var passLength = prompt(
     "How many characters would you like your password to be? (8-128)"
@@ -108,12 +106,21 @@ function writePassword() {
     chosenChar += upperChar;
   }
   if (lowerCase === true) {
+    if (chosenChar) {
+      chosenChar += ",";
+    }
     chosenChar += lowerChar;
   }
   if (symbols === true) {
+    if (chosenChar) {
+      chosenChar += ",";
+    }
     chosenChar += symbolChar;
   }
   if (numbers === true) {
+    if (chosenChar) {
+      chosenChar += ",";
+    }
     chosenChar += numChar;
   }
   var chosenArray = chosenChar.split(",");
