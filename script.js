@@ -77,45 +77,7 @@ var numChar = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 // // Write password to the #password input
 
-// function writePassword(num, arr) {
-//   var possibilityIndex = 0;
-//   var passWord = "";
-//   var targetArray = [];
-
-//   for (var i = 0; i < num; i++) {
-//     targetArray = arr[possibilityIndex];
-//     possibilityIndex++;
-
-//     passWord += targetArray[Math.floor(Math.random() * targetArray.length)];
-
-//     if (possibilityIndex === arr.length) {
-//       possibilityIndex = 0;
-//     }
-//   }
-
-//   var passwordArr = passWord.split("");
-//   var arrayLength = passwordArr.length;
-//   var scrambledPassword = "";
-//   var rand = 0;
-
-//   for (var i = 0; i < arrayLength; i++) {
-//     rand = Math.floor(Math.random() * passwordArr.length);
-//     scrambledPassword += passwordArr.splice(rand, 1);
-//   }
-
-//   return scrambledPassword;
-
-//   // var password = generatePassword();
-//   // var passwordText = document.querySelector("#password");
-
-//   // passwordText.value = password;
-// }
-
-// console.log(writePassword(10, [symbolChar, lowerChar, upperChar, numChar]));
-
-// generateBtn.addEventListener("click", writePassword);
-
-function writePassword(num, arr) {
+function writePassword() {
   var possibilityIndex = 0;
   var passWord = "";
   var chosenChar = [];
@@ -159,20 +121,12 @@ function writePassword(num, arr) {
   for (var i = 0; i < +passLength; i++) {
     passWord += chosenArray[Math.floor(Math.random() * chosenArray.length)];
   }
-  // alert(passWord);
-  //   // var password = generatePassword();
-  // var passwordText = document.querySelector("#password");
-
   var passwordText = document.querySelector("#password");
   passwordText.value = passWord;
-
-  //   passwordText.value = password;
 }
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-
-//   console.log(passLength);
 
 // GIVEN I need a new, secure password
 // WHEN I click the button to generate a password
