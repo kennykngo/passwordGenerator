@@ -115,13 +115,19 @@ var numChar = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 // generateBtn.addEventListener("click", writePassword);
 
-function writePassword() {
+function writePassword(num, arr) {
+  var possibilityIndex = 0;
+  var passWord = "";
+  var chosenChar = [];
+  var targetArray = [];
+
   var passLength = prompt(
     "How many characters would you like your password to be? (8-128)"
   );
   if (passLength < 8 || passLength > 128) {
     alert("Length must be between 8 to 128.");
-  } else if (passLength >= 8 && passLength <= 128) {
+    return;
+  } else {
     var upperCase = confirm("Would you like to use uppercase letters?");
     var lowerCase = confirm("Would you like to use lowercase letters?");
     var numbers = confirm("Would you like to use numbers?");
@@ -134,9 +140,26 @@ function writePassword() {
     symbols !== true
   ) {
     alert("You must select at least one character type.");
+    return;
   }
   if (upperCase === true) {
+    chosenChar += upperChar;
   }
+  if (lowerCase === true) {
+    chosenChar += lowerChar;
+  }
+  if (symbols === true) {
+    chosenChar += symbolChar;
+  }
+  if (numbers === true) {
+    chosenChar += numChar;
+  }
+  var chosenArray = chosenChar.split(",");
+  console.log(chosenArray);
+  for (var i = 0; i < +passLength; i++) {
+    passWord += chosenArray[Math.floor(Math.random() * chosenArray.length)];
+  }
+  alert(passWord);
   //   // var password = generatePassword();
   //   var passwordText = document.querySelector("#password");
 
